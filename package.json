@@ -73,5 +73,6 @@
     "graphql-request": "^7.4.0",
     "prettier": "^3.7.4",
     "prettier-plugin-svelte": "^3.4.1"
-  }
+  },
+  "packageManager": "pnpm@10.28.0"
 }
