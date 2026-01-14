@@ -1,4 +1,4 @@
-import { appid, version } from '../../package.json'
+import { appid, version } from '../../../package.json'
 
 const isDev = process.env.NODE_ENV === 'development'
 
