@@ -7,6 +7,6 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
-  <title>首页</title>
+  <title>首 页</title>
 </svelte:head>
 {@render children()}

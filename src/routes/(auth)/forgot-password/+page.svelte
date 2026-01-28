@@ -16,14 +16,14 @@
       </svg>
     </a>
 
-    <h2 class="text-4xl font-medium text-gray-900">Forgot Password</h2>
+    <h2 class="text-4xl font-medium text-gray-900">忘记密码</h2>
 
-    <p class="mt-4 text-base text-gray-500/90">Please enter email and password to access.</p>
+    <p class="mt-4 text-base text-gray-500/90">请输入电子邮件以进行密码找回。</p>
 
     <div class="mt-10">
-      <label class="font-medium" for="">Email</label>
+      <label class="font-medium" for="">邮箱</label>
       <input
-        placeholder="Please enter your email"
+        placeholder="请输入您的电子邮件...."
         class="mt-2 w-full rounded-md px-3 py-3 ring ring-gray-200 outline-none focus:ring-2 focus:ring-indigo-600"
         required
         type="email"
@@ -32,24 +32,24 @@
     </div>
 
     <div class="mt-6">
-      <label class="font-medium" for="">Password</label>
+      <label class="font-medium" for="">验证码</label>
       <input
-        placeholder="Please enter your password"
+        placeholder="请输入您的验证码...."
         class="mt-2 w-full rounded-md px-3 py-3 ring ring-gray-200 outline-none focus:ring-2 focus:ring-indigo-600"
         required
-        type="password"
+        type="text"
         name="password"
       />
     </div>
 
     <button
       type="submit"
-      class="mt-8 w-full cursor-pointer rounded-md bg-indigo-600 py-3 text-white transition hover:bg-indigo-700"
+      class="mt-8 w-full cursor-pointer rounded-md bg-indigo-500 py-3 text-white transition hover:opacity-90"
     >
-      Login
+      提交
     </button>
-    <p class="py-8 text-center">
-      Don't have an account? <a href={resolve('/signup')} class="text-indigo-600 hover:underline">Sign up</a>
+    <p class="py-8 text-center text-sm text-gray-500/90">
+      记得密码? 前往<a href={resolve('/signin')} class="text-indigo-400 hover:underline">登录</a>
     </p>
   </form>
 </main>

@@ -13,8 +13,8 @@
 
   <div class="flex w-full flex-col items-center justify-center">
     <form class="flex w-80 flex-col items-center justify-center md:w-96">
-      <h2 class="text-4xl font-medium text-gray-900">Sign in</h2>
-      <p class="mt-3 text-sm text-gray-500/90">Welcome back! Please sign in to continue</p>
+      <h2 class="text-4xl font-medium text-gray-900">登 录</h2>
+      <p class="mt-3 text-sm text-gray-500/90">欢迎回来！请登录以继续使用。</p>
 
       <button type="button" class="mt-8 flex h-12 w-full items-center justify-center rounded-full bg-gray-500/10">
         <img
@@ -25,7 +25,7 @@
 
       <div class="my-5 flex w-full items-center gap-4">
         <div class="h-px w-full bg-gray-300/90"></div>
-        <p class="w-full text-sm text-nowrap text-gray-500/90">or sign in with email</p>
+        <p class="w-full text-sm text-nowrap text-gray-500/90">或者使用电子邮件进行登录</p>
         <div class="h-px w-full bg-gray-300/90"></div>
       </div>
 
@@ -42,7 +42,7 @@
         </svg>
         <input
           type="email"
-          placeholder="Email id"
+          placeholder="请输入您的电子邮件...."
           class="h-full w-full bg-transparent text-sm text-gray-500/80 placeholder-gray-500/80 outline-none"
           required
         />
@@ -59,7 +59,7 @@
         </svg>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="请输入密码...."
           class="h-full w-full bg-transparent text-sm text-gray-500/80 placeholder-gray-500/80 outline-none"
           required
         />
@@ -68,19 +68,19 @@
       <div class="mt-8 flex w-full items-center justify-between text-gray-500/80">
         <div class="flex items-center gap-2">
           <input class="h-5" type="checkbox" id="checkbox" />
-          <label class="text-sm" for="checkbox">Remember me</label>
+          <label class="text-sm" for="checkbox">记住密码</label>
         </div>
-        <a class="text-sm underline" href={resolve('/forgot-password')}>Forgot password?</a>
+        <a class="text-sm underline" href={resolve('/forgot-password')}>忘记密码?</a>
       </div>
 
       <button
         type="submit"
         class="mt-8 h-11 w-full rounded-full bg-indigo-500 text-white transition-opacity hover:opacity-90"
       >
-        Login
+        登 录
       </button>
       <p class="mt-4 text-sm text-gray-500/90">
-        Don’t have an account? <a class="text-indigo-400 hover:underline" href={resolve('/signup')}>Sign up</a>
+        还没有账号? 前往<a class="text-indigo-400 hover:underline" href={resolve('/signup')}>注册</a>
       </p>
     </form>
   </div>
