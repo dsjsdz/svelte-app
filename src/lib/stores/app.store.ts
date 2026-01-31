@@ -1,4 +1,6 @@
-import { Store } from '@tanstack/svelte-store'
+import * as devalue from 'devalue'
+import { persisted } from 'svelte-persisted-store'
+
 import { browser } from '$app/environment'
 
 import type { API } from '$lib/types/api'
@@ -19,15 +21,17 @@ const initialState: AppState = {
   lng: 'en',
 }
 
-export const appStore = new Store<AppState>(initialState)
+export const appStore = persisted('local-storage', initialState, {
+  serializer: devalue,
+  storage: 'session',
+})
 
 if (browser) {
   appStore.subscribe(state => {
-    localStorage.theme = state.currentVal.theme
-    document.documentElement.classList.toggle('dark', state.currentVal.theme === 'dark')
+    document.documentElement.classList.toggle('dark', state.theme === 'dark')
   })
 }
 
 export function setTheme(theme: AppState['theme']) {
-  appStore.setState(prev => ({ ...prev, theme }))
+  appStore.update(prev => ({ ...prev, theme }))
 }

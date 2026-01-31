@@ -1,7 +1,7 @@
 {
   "name": "svelte-app",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "svelte app for android",
   "appid": "dse4be4202ec9ee966",
@@ -17,17 +17,19 @@
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint . && prettier --check .",
+    "lint": "eslint \"src/**/*.{svelte,ts,tsx}\" --fix",
     "format": "prettier --write .",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "devDependencies": {
     "@apollo/client": "^4.0.11",
+    "@cakioe/kit.js": "^1.7.1",
     "@eslint/compat": "^1.4.0",
     "@eslint/js": "^9.39.1",
     "@graphql-codegen/cli": "^6.1.0",
     "@graphql-codegen/client-preset": "^4.3.3",
     "@graphql-codegen/introspection": "^4.0.3",
+    "@graphql-codegen/typed-document-node": "^6.1.5",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@internationalized/date": "^3.10.1",
     "@lucide/svelte": "^0.561.0",
@@ -42,13 +44,14 @@
     "@tanstack/svelte-store": "^0.9.0",
     "@tanstack/table-core": "^8.21.3",
     "@types/node": "^22",
-    "@urql/svelte": "^5.0.0",
     "bits-ui": "^2.15.4",
     "clsx": "^2.1.1",
     "embla-carousel-svelte": "^8.6.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-svelte": "^3.13.1",
+    "eslint-plugin-unused-imports": "^4.3.0",
     "formsnap": "^2.0.1",
     "globals": "^16.5.0",
     "layerchart": "2.0.0-next.43",
@@ -69,13 +72,16 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.1",
     "vaul-svelte": "1.0.0-next.7",
-    "vite": "^7.2.6"
+    "vite": "^7.2.6",
+    "zod": "^4.3.6"
   },
   "dependencies": {
+    "devalue": "^5.6.2",
+    "graffle": "8.0.0-next.223",
     "graphql": "^16.12.0",
-    "graphql-request": "^7.4.0",
     "prettier": "^3.7.4",
-    "prettier-plugin-svelte": "^3.4.1"
+    "prettier-plugin-svelte": "^3.4.1",
+    "svelte-persisted-store": "^0.12.0"
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.2"
 }

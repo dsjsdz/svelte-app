@@ -1,6 +1,25 @@
-import { sveltekit } from '@sveltejs/kit/vite'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+
 import { enhancedImages } from '@sveltejs/enhanced-img'
+import { sveltekit } from '@sveltejs/kit/vite'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
-export default defineConfig({ plugins: [tailwindcss(), enhancedImages(), sveltekit()] })
+const file = fileURLToPath(new URL('./package.json', import.meta.url))
+const json = readFileSync(file, 'utf8')
+const pkg = JSON.parse(json)
+
+export default defineConfig(({ mode }) => {
+  return {
+    define: {
+      __APPID__: JSON.stringify(pkg.appid),
+      __VERSION__: JSON.stringify(pkg.version),
+    },
+    plugins: [tailwindcss(), enhancedImages(), sveltekit()],
+    esbuild: {
+      // 生产环境下禁用console和debugger
+      drop: mode === 'production' ? ['console', 'debugger'] : [],
+    },
+  }
+})

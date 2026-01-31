@@ -1,5 +1,9 @@
-import { appid, version } from '../../../package.json'
+import { Signatory } from '@cakioe/kit.js'
 
+const appid = __APPID__
+const version = __VERSION__
 const isDev = process.env.NODE_ENV === 'development'
 
-export { appid, isDev, version }
+const signer = new Signatory(appid)
+
+export { appid, isDev, signer, version }
