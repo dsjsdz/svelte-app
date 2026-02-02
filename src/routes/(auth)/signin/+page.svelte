@@ -6,6 +6,7 @@
   import { superForm } from 'sveltekit-superforms'
   import { zod4 } from 'sveltekit-superforms/adapters'
 
+  import { goto } from '$app/navigation'
   import { resolve } from '$app/paths'
 
   import { Button } from '$lib/components/ui/button/index.js'
@@ -27,7 +28,7 @@
     onSubmit: () => {
       loading = true
     },
-    onResult: ({ result }) => {
+    onResult: async ({ result }) => {
       loading = false
 
       // ✅ 登录失败（fail(...)）
@@ -36,8 +37,9 @@
       }
 
       // ✅ 登录成功（redirect 会发生）
-      if (result.type === 'success') {
+      if (result.type === 'success' && result.data?.success) {
         toast.success('登录成功，正在跳转...')
+        await goto(resolve(result?.data?.redirectTo), { replaceState: true })
       }
     },
   })

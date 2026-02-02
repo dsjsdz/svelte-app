@@ -6,7 +6,7 @@ import { browser } from '$app/environment'
 import type { API } from '$lib/types/api'
 
 export interface AppState {
-  theme: 'light' | 'dark' | 'system'
+  theme: API.Theme
   loggedIn: boolean
   token: string | null
   profile: API.Profile | null
@@ -14,14 +14,14 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-  theme: browser ? (localStorage.theme as AppState['theme']) || 'system' : 'system',
+  theme: browser ? (sessionStorage.theme as AppState['theme']) || 'system' : 'system',
   loggedIn: false,
   token: null,
   profile: null,
   lng: 'en',
 }
 
-export const appStore = persisted('local-storage', initialState, {
+export const appStore = persisted('session-storage', initialState, {
   serializer: devalue,
   storage: 'session',
 })

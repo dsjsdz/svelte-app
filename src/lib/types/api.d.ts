@@ -7,4 +7,6 @@ export declare namespace API {
     email_verified_at?: string
     status: string
   }
+
+  type Theme = 'light' | 'dark' | 'system'
 }
