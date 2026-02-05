@@ -16,6 +16,9 @@
   import { Label } from '$lib/components/ui/label/index.js'
   import { Spinner } from '$lib/components/ui/spinner/index.js'
 
+  import GoogleLogo from '$lib/assets/images/google.svg'
+  import leftSideImage from '$lib/assets/images/leftSideImage.png'
+
   import { formSchema } from './schema'
 
   import type { PageData } from './$types'
@@ -53,11 +56,7 @@
 
 <div class="flex h-screen w-full">
   <div class="hidden w-full md:inline-block">
-    <img
-      class="h-full"
-      src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/leftSideImage.png"
-      alt="leftSideImage"
-    />
+    <img class="h-full" src={leftSideImage} alt="leftSideImage" />
   </div>
 
   <div class="flex w-full flex-col items-center justify-center">
@@ -65,11 +64,8 @@
       <h2 class="text-4xl font-medium text-gray-900">登 录</h2>
       <p class="mt-3 text-sm text-gray-500/90">欢迎回来！请登录以继续使用。</p>
 
-      <Button class="mt-8 h-11 w-full " size="lg" variant="secondary">
-        <img
-          src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/googleLogo.svg"
-          alt="googleLogo"
-        />
+      <Button class="mt-8 h-11 w-full" size="lg" variant="secondary">
+        <img src={GoogleLogo} alt="googleLogo" />
       </Button>
 
       <div class="my-5 flex w-full items-center gap-4">
