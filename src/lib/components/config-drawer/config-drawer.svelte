@@ -26,15 +26,18 @@
 
 <Sheet>
   <SheetTrigger>
-    <Button
-      size="icon"
-      variant="ghost"
-      aria-label="Open theme settings"
-      aria-describedby="config-drawer-description"
-      class="rounded-full"
-    >
-      <Settings aria-hidden="true" />
-    </Button>
+    {#snippet child({ props })}
+      <Button
+        size="icon"
+        variant="ghost"
+        aria-label="Open theme settings"
+        aria-describedby="config-drawer-description"
+        class="rounded-full"
+        {...props}
+      >
+        <Settings aria-hidden="true" />
+      </Button>
+    {/snippet}
   </SheetTrigger>
   <SheetContent class="flex flex-col">
     <SheetHeader class="pb-0 text-start">
