@@ -3,6 +3,7 @@
   import ArrowUpAZ from '@lucide/svelte/icons/arrow-up-a-z'
   import Eye from '@lucide/svelte/icons/eye'
   import SlidersHorizontal from '@lucide/svelte/icons/sliders-horizontal'
+  import Upload from '@lucide/svelte/icons/upload'
   import { toast } from 'svelte-sonner'
   import { superForm, fileProxy } from 'sveltekit-superforms'
   import { zod4Client } from 'sveltekit-superforms/adapters'
@@ -48,10 +49,15 @@
   const files = fileProxy(params, 'file')
 
   let search = $state<string>('All Apps')
+
+  let fileInput: HTMLInputElement | null = null
+  const open = () => {
+    fileInput?.click()
+  }
 </script>
 
 <Main fixed>
-  <div class="space-y-0.5">
+  <div {...props} class="space-y-0.5">
     <h1 class="text-2xl font-bold tracking-tight md:text-3xl">附件管理</h1>
     <p class="text-muted-foreground">Manage your account settings and set e-mail preferences.</p>
   </div>
@@ -123,15 +129,36 @@
   </ul>
 
   <form method="POST" enctype="multipart/form-data" use:enhance>
-    <div>
+    <div class="mb-3">
       <label for="file-input">选择文件:</label>
-      <Input disabled={loading} id="file-input" name="file" type="file" accept="*" bind:files={$files} required />
+      <Input
+        bind:ref={fileInput}
+        disabled={loading}
+        id="file-input"
+        name="file"
+        type="file"
+        accept="*"
+        bind:files={$files}
+        class="hidden"
+        required
+      />
+      <button
+        tabindex={0}
+        onclick={open}
+        class="mt-1.5 flex cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-border p-8 text-center"
+      >
+        <div class="mb-2 rounded-full bg-muted p-3">
+          <Upload size={32} />
+        </div>
+        <p class="text-sm font-medium text-foreground">Upload a project image</p>
+        <p class="mt-1 text-sm text-muted-foreground">or, click to browse (4MB max)</p>
+      </button>
     </div>
 
     {#if $files.length > 0}
       <p>已选择文件: {$files[0].name}</p>
     {/if}
 
-    <button type="submit">上传</button>
+    <Button type="submit">上传</Button>
   </form>
 </Main>

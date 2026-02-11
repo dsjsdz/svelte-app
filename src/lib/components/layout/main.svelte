@@ -1,7 +1,16 @@
 <script lang="ts">
   import { cn } from '$lib/utils'
 
-  const { fixed, fluid, className, children, ...props } = $props()
+  import type { Component } from 'svelte'
+
+  type LayoutProps = {
+    fixed?: boolean
+    fluid?: boolean
+    className?: string
+    children?: Component | null
+  }
+
+  const { fixed, fluid, className = '', children = null, ...props } = $props<LayoutProps>()
 </script>
 
 <main
