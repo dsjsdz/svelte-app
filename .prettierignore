@@ -7,5 +7,6 @@ coverage
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+src-tauri
 
 src/lib/components/ui/*
