@@ -154,8 +154,6 @@ dist-ssr
 # tauri
 src-tauri/target/debug/*
 
-pnpm-lock.yaml
-
 .env
 tsconfig.tsbuildinfo
 .svelte-kit
