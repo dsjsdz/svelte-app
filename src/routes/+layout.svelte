@@ -19,5 +19,5 @@
   <title>首页</title>
 </svelte:head>
 
-<Toaster position="top-center" richColors />
+<Toaster position="top-center" richColors class="pt-safe" />
 {@render children()}
