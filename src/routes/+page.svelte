@@ -1,12 +1,16 @@
 <script lang="ts">
   import Autoplay from 'embla-carousel-autoplay'
   import { onMount } from 'svelte'
+  import { get } from 'svelte/store'
 
+  import { beforeNavigate, goto } from '$app/navigation'
   import { resolve } from '$app/paths'
 
   import { Badge } from '$lib/components/ui/badge/index.js'
   import * as Carousel from '$lib/components/ui/carousel/index.js'
   import { Spinner } from '$lib/components/ui/spinner/index.js'
+
+  import { appStore } from '$lib/stores/app.store'
 
   const plugin = Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true, jump: false })
 
@@ -15,6 +19,15 @@
     'https://picsum.photos/id/1015/700/1280',
     'https://picsum.photos/id/1016/700/1280',
   ]
+
+  const profile = get(appStore)?.profile
+  beforeNavigate(({ to, from: _, cancel }) => {
+    if (to?.url?.pathname === '/' && profile) {
+      // 阻止默认导航，自己跳转
+      goto(resolve('/dashboard'), { replaceState: true, invalidateAll: true })
+      cancel()
+    }
+  })
 
   let loading = $state<boolean>(false)
   onMount(() => {

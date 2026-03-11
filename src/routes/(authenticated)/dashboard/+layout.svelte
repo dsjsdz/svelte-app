@@ -9,6 +9,7 @@
     TopNav,
     Search,
   } from '$lib/components/layout'
+  import { TabBar } from '$lib/components/tabbar'
 
   let { children } = $props()
 
@@ -56,4 +57,8 @@
     </div>
   </Header>
   {@render children()}
+
+  <!-- 底部菜单导航 仅有移动端显示 -->
+  <TabBar />
+  <!-- 显示结束 -->
 </AuthenticatedLayout>
