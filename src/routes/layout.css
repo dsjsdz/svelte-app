@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tailwindcss-safe-area';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
@@ -14,9 +13,11 @@
     @apply overflow-x-hidden;
   }
   body {
-    @apply min-h-svh w-full bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar;
+    @apply min-h-dvh w-full bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar;
+    box-sizing: border-box;
+    min-height: 100vh;
+    user-select: none;
   }
-
   /* Override Radix scroll locking for sticky headers */
   body[data-scroll-locked] {
     overflow: unset !important;

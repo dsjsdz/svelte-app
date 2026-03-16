@@ -15,25 +15,26 @@
 
   const onScroll = () => {
     if (!browser) return
-    offset = document.body.scrollTop || document.documentElement.scrollTop
+    offset = window.scrollY
   }
 
   onMount(() => {
     if (browser) {
-      document.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('scroll', onScroll, { passive: true })
+      onScroll()
     }
   })
 
   onDestroy(() => {
     if (browser) {
-      document.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', onScroll)
     }
   })
 </script>
 
 <header
   class={cn(
-    'z-50 h-16',
+    'z-50 h-[calc(4rem+env(safe-area-inset-top))] bg-background pt-[env(safe-area-inset-top)] text-muted-foreground',
     fixed && 'header-fixed peer/header sticky top-0 w-[inherit]',
     offset > 10 && fixed ? 'shadow' : 'shadow-none',
     className

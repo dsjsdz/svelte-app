@@ -1,4 +1,4 @@
 <script lang="ts">
 </script>
 
-<div class="flex h-screen w-screen items-center justify-center">roles</div>
+<div class="flex h-full w-full items-center justify-center">roles</div>

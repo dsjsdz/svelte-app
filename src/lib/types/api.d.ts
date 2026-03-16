@@ -15,6 +15,19 @@ export declare namespace API {
   type Collapsible = 'offcanvas' | 'icon' | 'none' | undefined
   type Variant = 'inset' | 'sidebar' | 'floating'
   type Locale = 'en-US' | 'zh-CN'
+  type TabbarHref =
+    | '/dashboard'
+    | '/dashboard/roles'
+    | '/dashboard/articles'
+    | '/dashboard/profile'
+    | '/dashboard/menus'
+
+  export interface TabbarLink {
+    title?: string
+    href: TabbarHref
+    disabled?: boolean
+    icon: Component
+  }
 
   export interface Menu {
     id: number

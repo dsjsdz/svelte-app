@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { cn } from '$lib/utils'
-
   import { IsMobile } from '$lib/hooks/is-mobile.svelte.js'
+
+  import { cn } from '$lib/utils'
 
   import type { Component } from 'svelte'
   import type { HTMLAttributes } from 'svelte/elements'

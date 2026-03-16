@@ -64,8 +64,10 @@
       <Carousel.Previous />
       <Carousel.Next />
     </Carousel.Root>
-    <div class="pointer-events-none absolute inset-0">
-      <Badge class="pointer-events-auto absolute top-safe right-2" variant="secondary">广 告</Badge>
+    <div
+      class="pointer-events-none absolute inset-0 pt-[calc(env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom))]"
+    >
+      <Badge class="absolute top-8 right-2 z-50">广 告</Badge>
       <div
         class="pointer-events-auto absolute right-4 bottom-4 left-4 mx-auto mt-6 flex items-center justify-center gap-4"
       >

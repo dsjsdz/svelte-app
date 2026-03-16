@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Main } from '$lib/components/layout'
+
   let { children } = $props()
 </script>
 
@@ -6,4 +8,6 @@
   <title>菜单管理</title>
 </svelte:head>
 
-{@render children()}
+<Main>
+  {@render children()}
+</Main>

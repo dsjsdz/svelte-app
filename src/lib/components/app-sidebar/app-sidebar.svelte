@@ -33,7 +33,7 @@
   let sidebar = $derived($appStore.sidebar)
 </script>
 
-<Sidebar {collapsible} variant={sidebar}>
+<Sidebar {collapsible} variant={sidebar} class="pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
   <SidebarHeader>
     <TeamSwitcher {teams} />
   </SidebarHeader>
