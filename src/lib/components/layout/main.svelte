@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { IsMobile } from '$lib/hooks/is-mobile.svelte.js'
+
   import { cn } from '$lib/utils'
 
   import type { Component } from 'svelte'
@@ -13,13 +15,16 @@
 
   // https://svelte.dev/docs/svelte/$props#Type-safety
   const { fixed = false, fluid = false, className = '', children, ...rest }: LayoutProps = $props()
+
+  const isMobile = $derived.by(() => new IsMobile().current ?? fixed)
 </script>
 
 <main
-  data-layout={fixed ? 'fixed' : 'auto'}
+  data-layout={isMobile ? 'fixed' : 'auto'}
   class={cn(
     'px-4 py-6',
-    fixed && 'flex grow flex-col overflow-hidden',
+    isMobile && 'flex grow flex-col',
+    isMobile ? 'overflow-y-scroll' : 'overflow-hidden',
     !fluid && '@7xl/content:mx-auto @7xl/content:w-full @7xl/content:max-w-7xl',
     className
   )}

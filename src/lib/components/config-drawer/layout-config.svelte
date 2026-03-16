@@ -32,7 +32,7 @@
   let collapsible = $derived($appStore.collapsible)
 
   const changeLayout = (value: API.Collapsible) => {
-    if (value === 'default') return
+    if (!value) return
     appStore.update(state => ({ ...state, collapsible: value }))
   }
 

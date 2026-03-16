@@ -18,10 +18,10 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-  theme: browser ? (sessionStorage.theme as AppState['theme']) || 'system' : 'system',
-  dir: browser ? (sessionStorage.dir as AppState['dir']) || 'ltr' : 'ltr',
-  collapsible: browser ? (sessionStorage.collapsible as AppState['collapsible']) || 'icon' : 'icon', //
-  sidebar: browser ? (sessionStorage.collapsible as AppState['sidebar']) || 'inset' : 'inset',
+  theme: browser ? (localStorage.theme as AppState['theme']) || 'system' : 'system',
+  dir: browser ? (localStorage.dir as AppState['dir']) || 'ltr' : 'ltr',
+  collapsible: browser ? (localStorage.collapsible as AppState['collapsible']) || 'icon' : 'icon', //
+  sidebar: browser ? (localStorage.collapsible as AppState['sidebar']) || 'inset' : 'inset',
   loggedIn: false,
   token: null,
   profile: null,
@@ -30,7 +30,7 @@ const initialState: AppState = {
 
 export const appStore = persisted('app-state', initialState, {
   serializer: devalue,
-  storage: 'session',
+  storage: 'local',
 })
 
 if (browser) {
@@ -49,6 +49,6 @@ if (browser) {
 // Cannot stringify a function
 export const toDestroy = () => {
   if (browser) {
-    sessionStorage.clear()
+    localStorage.clear()
   }
 }

@@ -3,8 +3,6 @@
   import { _ } from 'svelte-i18n'
   import { toast } from 'svelte-sonner'
 
-  import { resolve } from '$app/paths'
-
   import { Main } from '$lib/components/layout'
   import Spinner from '$lib/components/spinner.svelte'
   import { Button } from '$lib/components/ui/button/index.js'
@@ -40,7 +38,7 @@
         </TabsList>
       </div>
       <TabsContent value="overview" class="space-y-4">
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 pb-12">
           <Card>
             <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle class="text-sm font-medium">Total Revenue</CardTitle>
@@ -128,21 +126,6 @@
               <p class="text-xs text-muted-foreground">+201 since last hour</p>
             </CardContent>
           </Card>
-          <Button variant="link" class="text-muted-foreground" size="sm">
-            <a href={resolve('/dashboard/accounts')}> accounts </a>
-          </Button>
-          <Button variant="link" class="text-muted-foreground" size="sm">
-            <a href={resolve('/dashboard/menus')}> menus </a>
-          </Button>
-          <Button variant="link" class="text-muted-foreground" size="sm">
-            <a href={resolve('/dashboard/permissions')}> permissions </a>
-          </Button>
-          <Button variant="link" class="text-muted-foreground" size="sm">
-            <a href={resolve('/dashboard/roles')}> roles </a>
-          </Button>
-          <Button variant="link" class="text-muted-foreground" size="sm">
-            <a href={resolve('/dashboard/articles')}> articles </a>
-          </Button>
         </div>
       </TabsContent>
     </Tabs>
