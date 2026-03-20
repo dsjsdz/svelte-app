@@ -3,9 +3,11 @@ import { get } from 'svelte/store'
 
 import { appStore } from '$lib/stores/app.store'
 
+const url = import.meta.env.MODE === 'development' ? import.meta.env.VITE_DEV_URL : import.meta.env.VITE_API_URL
+
 // @urql/exchange-persisted 会将 query 强制变成 GET 请求
 const client = new Client({
-  url: import.meta.env.VITE_API_URL,
+  url,
   exchanges: [cacheExchange, fetchExchange],
   fetchOptions: () => {
     const token = get(appStore)?.token
