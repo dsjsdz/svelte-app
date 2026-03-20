@@ -8,4 +8,13 @@ class MainActivity : TauriActivity() {
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
   }
+
+  /**
+   * Overrides the default onBackPressed method to do nothing.
+   * This is useful for scenarios where we want to prevent the user from
+   * going back to the previous activity.
+   */
+  override fun onBackPressed() {
+    // 禁用页面侧滑返回
+  }
 }
