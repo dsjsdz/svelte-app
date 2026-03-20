@@ -13,10 +13,7 @@
     @apply overflow-x-hidden;
   }
   body {
-    @apply min-h-dvh w-full bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar;
-    box-sizing: border-box;
-    min-height: 100vh;
-    user-select: none;
+    @apply box-border min-h-dvh w-full touch-none overscroll-contain bg-background text-foreground select-none has-[div[data-variant='inset']]:bg-sidebar;
   }
   /* Override Radix scroll locking for sticky headers */
   body[data-scroll-locked] {
